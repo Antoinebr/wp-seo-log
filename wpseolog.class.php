@@ -54,8 +54,10 @@ class wpseolog{
   }
 
   public function is_seo_visit(){
-    if(isset($_SERVER['HTTP_REFERER'])) $referer = $_SERVER['HTTP_REFERER'];
-    return mb_eregi('www.google.', $referer);
+    if(isset($_SERVER['HTTP_REFERER'])){
+      $referer = $_SERVER['HTTP_REFERER'];
+      return mb_eregi('www.google.', $referer);
+    }
   }
 
   private function record_url($fromSeo = false){

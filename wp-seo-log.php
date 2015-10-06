@@ -16,13 +16,22 @@ function register_my_custom_menu_page() {
   add_menu_page( 'WPSEOLOG', 'Wpseolog', 'manage_options', 'wp-seo-log/admin.php', '', 'dashicons-awards', 6 );
 }
 
-
+require ('wpseologinstall.class.php');
 require ('wpseolog.class.php');
 
-$log = new wpseolog();
+// install table
+function wpseolog_install(){
+  $install = new wpseologinstall();
+  $install->install_table();
+}
+register_activation_hook( __FILE__, 'wpseolog_install');
 
+// record
+$log = new wpseolog();
 $log->record_crawl();
-#var_dump($log->is_google_bot());
+
+// dev
+var_dump($log->is_google_bot());
 //
 // echo "new url "; var_dump($log->isNewUrl);
 // echo "current URL ".$log->currentUrlID;
