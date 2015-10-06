@@ -1,7 +1,7 @@
 # wp-seo-log
 Plugin WordPress permettant de monitorer le passage de GoogeBot
 
-Ce plugin est en plein développement, il n'est pas recommander de l'utiliser en l'état.
+Ce plugin est en plein développement, il n'est pas recommandé de l'utiliser en l'état.
 
 ## strucutre de la table MYSQL 
 
