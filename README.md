@@ -5,11 +5,11 @@ Ce plugin est en plein développement, il n'est pas recommander de l'utiliser en
 
 ## strucutre de la table MYSQL 
 
--- Structure de la table `wp_wpseolog`
---
 
 ```sql
 
+-- Structure de la table `wp_wpseolog`
+--
 CREATE TABLE `wp_wpseolog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(455) NOT NULL,
