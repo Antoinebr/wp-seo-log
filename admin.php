@@ -13,6 +13,10 @@ foreach($crawledUrls as $crawledUrl){
   echo "<hr>";
 }
 
-echo $analytics->get_nb_active_url();
-
 ?>
+
+<h2>Nb URL Actives <?= $analytics->nbActiveUrl; ?></h2>
+
+<h2>Nb Total URL <?= $analytics->nbTotalUrl; ?></h2>
+
+<h2>Active rate <?= $analytics->rateActiveSeoUrl; ?> %</h2>

@@ -3,14 +3,15 @@
 class wpseologanalytics{
 
   private $table;
-  public $currentUrlID;
-  public $isNewUrl;
-  public $currentDate;
+  public $nbActiveUrl;
+  public $nbTotalUrl;
+  public $rateActiveSeoUrl;
 
   public function __construct(){
     $this->set_table();
-    $this->currentDate = date("Y-m-d G:i:s");
-
+    $this->get_nb_active_url();
+    $this->get_nb_total_url();
+    $this->get_active_seo_url_rate();
   }
 
   private function set_table(){
@@ -25,15 +26,19 @@ class wpseologanalytics{
     return $result;
   }
 
-  public function get_nb_active_url(){
+  private function get_nb_active_url(){
     global $wpdb;
-    #$result = $wpdb->get_results( "SELECT COUNT(*) FROM $this->table WHERE nbcrawl > 0");
-    #return $result;
-    $liked = $wpdb->get_var("SELECT COUNT(id) FROM  $this->table WHERE nbcrawl > 0 AND seovisited > 0");
-    echo $liked;
+    $this->nbActiveUrl = $wpdb->get_var("SELECT COUNT(id) FROM  $this->table WHERE nbcrawl > 0 AND seovisited > 0");
   }
 
+  private function get_nb_total_url(){
+    global $wpdb;
+    $this->nbTotalUrl = $wpdb->get_var("SELECT COUNT(id) FROM  $this->table");
+  }
 
+  private function get_active_seo_url_rate(){
+    $this->rateActiveSeoUrl = $this->nbActiveUrl / $this->nbTotalUrl;
+  }
 
 
 }

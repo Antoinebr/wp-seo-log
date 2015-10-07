@@ -79,13 +79,13 @@ class wpseolog{
   public function record_crawl(){
     $this->is_new_url();
 
-    if($this->is_google_bot() && $this->isNewUrl){
+    if(!$this->is_google_bot() && $this->isNewUrl){
       $this->record_url();
-    }elseif($this->is_google_bot() && !$this->isNewUrl){
+    }elseif(!$this->is_google_bot() && !$this->isNewUrl){
       $this->update_url('googlebot');
     }
 
-    if(!$this->is_seo_visit() && $this->isNewUrl){
+    if($this->is_seo_visit() && $this->isNewUrl){
       $formSEo = true; $this->record_url($formSEo);
     }elseif(!$this->is_seo_visit() && !$this->isNewUrl){
       $this->update_url('seovisit');

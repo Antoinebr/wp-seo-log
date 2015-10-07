@@ -29,9 +29,8 @@ register_activation_hook( __FILE__, 'wpseolog_install');
 // record
 $log = new wpseolog();
 $log->record_crawl();
-
 // dev
-var_dump($log->is_google_bot());
+#var_dump($log->is_google_bot());
 //
 // echo "new url "; var_dump($log->isNewUrl);
 // echo "current URL ".$log->currentUrlID;
