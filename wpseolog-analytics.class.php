@@ -11,7 +11,7 @@ class wpseologanalytics{
   public $nbTotalGoogle302;
   public $nbTotalGoogle404;
   public $nbTotalGoogle500;
-  public $fromNbDaysInt;
+  private $fromNbDaysInt;
 
   // le constructeur prend en paramètre un INT correspondant au nombre de jours entre maintenant et x
   public function __construct($fromNbDaysInt){
@@ -79,7 +79,7 @@ class wpseologanalytics{
 
   private function check_res_code($rescode){
     global $wpdb;
-    return $wpdb->get_var( "SELECT COUNT(*) FROM $this->table WHERE date < (NOW() - INTERVAL 1 DAY) AND rescode = $rescode");
+    return $wpdb->get_var( "SELECT COUNT(*) FROM $this->table WHERE date < (NOW() - INTERVAL $this->fromNbDaysInt DAY) AND rescode = $rescode");
   }
 
 
