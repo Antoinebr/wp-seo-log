@@ -50,7 +50,7 @@ class wpseologanalytics{
 
   private function set_nb_total_url(){
     global $wpdb;
-    $this->nbTotalUrl = $wpdb->get_var("SELECT COUNT(id) FROM  $this->table AND date > (NOW() - INTERVAL $this->fromNbDaysInt DAY)");
+    $this->nbTotalUrl = $wpdb->get_var("SELECT COUNT(id) FROM  $this->table WHERE date > (NOW() - INTERVAL $this->fromNbDaysInt DAY)");
   }
 
   private function set_active_seo_url_rate(){
