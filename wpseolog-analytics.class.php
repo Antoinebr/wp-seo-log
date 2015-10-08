@@ -58,23 +58,23 @@ class wpseologanalytics{
   }
 
   private function set_nb_200_google(){
-    $this->nbTotalGoogle200 = $this->check_res_code(200);
+    $this->nbTotalGoogle200 = $this->check_res_code('200');
   }
 
   private function set_nb_301_google(){
-    $this->nbTotalGoogle301 = $this->check_res_code(301);
+    $this->nbTotalGoogle301 = $this->check_res_code('301');
   }
 
   private function set_nb_302_google(){
-    $this->nbTotalGoogle302 = $this->check_res_code(302);
+    $this->nbTotalGoogle302 = $this->check_res_code('302');
   }
 
   private function set_nb_404_google(){
-    $this->nbTotalGoogle404 = $this->check_res_code(404);
+    $this->nbTotalGoogle404 = $this->check_res_code('404');
   }
 
   private function set_nb_500_google(){
-    $this->nbTotalGoogle500 = $this->check_res_code(500);
+    $this->nbTotalGoogle500 = $this->check_res_code('500');
   }
 
   private function check_res_code($rescode){
