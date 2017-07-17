@@ -36,7 +36,7 @@ class wpseologanalytics{
     $this->table = $wpdb->prefix."wpseolog";
   }
 
-  // renvoit un Array contenant les urls crawlés par Google entre maintenent et $fromNbDaysInt
+  // renvoit un Array contenant les urls crawlées par Google entre maintenant et $fromNbDaysInt
   public function get_new_urls_crawled(){
     global $wpdb;
     $result = $wpdb->get_results( "SELECT * FROM $this->table WHERE nbcrawl > 0 AND date > (NOW() - INTERVAL $this->fromNbDaysInt DAY)");
